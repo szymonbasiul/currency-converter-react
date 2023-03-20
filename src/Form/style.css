@@ -1,0 +1,79 @@
+.form {
+    margin: 50px 0;
+    padding: 5px;
+    max-width: 600px;
+    border: 1px solid #f6dc19;
+    height: 100%;
+    background-color: #ccc;
+    border-radius: 5px;
+}
+
+.form__labelText {
+    width: 100%;
+    max-width: 100px;
+    display: inline-block;
+    margin-right: 2px;
+}
+
+.form__field {
+    border: 1px solid #f6dc19;
+    padding: 5px;
+    width: 100%;
+    max-width: 300px;
+    border-radius: 5px;
+}
+
+.form__button {
+    margin: 10px auto;
+    width: 100%;
+    border: none;
+    font-weight: 700;
+    border-radius: 5px;
+    background-color: #f6dc19;
+    padding: 15px;
+}
+
+.form__button:hover {
+    cursor: pointer;
+    background-color: #fde84c;
+}
+
+.form__button:active {
+    background-color: #fbee8c;
+}
+
+.form__fieldset {
+    border: 1px solid #ccc;
+    background-color: #ccc;
+    padding: 10px;
+    margin: 10px 0;
+}
+
+.form__legend {
+    background-color: #f6dc19;
+    border-radius: 5px;
+    padding: 20px;
+    font-weight: 700;
+}
+
+.form__radio {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.form__radioItem:hover {
+    cursor: pointer;
+}
+
+.form__radioInput:hover {
+    cursor: pointer;
+}
+
+.form__result {
+    padding: 0 10px;
+    border-radius: 5px;
+    background-color: white;
+    font-size: large;
+    font-weight: bold;
+}
