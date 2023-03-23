@@ -1,11 +1,11 @@
 import "./style.css";
 
 const Form = () => (
-  <form className="form js-form">
+  <form className="form">
     <fieldset className="form__fieldset">
       <legend className="form__legend"> Kalkulator walutowy </legend>
       <p>Wybierz walutę*</p>
-      <select className="js-currencyInput">
+      <select className="select">
         <option value="EUR">EUR</option>
         <option value="GBP">GBP</option>
         <option value="USD">USD</option>
@@ -16,7 +16,7 @@ const Form = () => (
       </label>
       <label>
         <input
-          className="form__field js-currencyAmount"
+          className="form__field"
           id="amount"
           name="exchange"
           type="number"
@@ -28,16 +28,13 @@ const Form = () => (
         />
       </label>
     </fieldset>
+
     <label>
-      <input
-        className="form__button js-submit"
-        type="submit"
-        value="Przelicz"
-      />
+      <button className="form__button" type="submit">Przelicz</button>
     </label>
     <p className="form__result">
       {" "}
-      Przeliczona wartość: <strong className="js-result"></strong>
+      Przeliczona wartość: <strong className="result">result</strong>
     </p>
   </form>
 );

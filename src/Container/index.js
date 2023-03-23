@@ -1,10 +1,5 @@
 import "./style.css";
-import Form from "../Form";
 
-const Container = () => (
-  <div className="container">
-    <Form />
-  </div>
-);
+const Container = ({ children }) => <div className="container">{children}</div>;
 
 export default Container;
