@@ -3,11 +3,26 @@ import { currencies } from "../currencies";
 import "./style.css";
 
 const Form = () => {
-  const [amount, setAmount] = useState(currencies[0].shortName);
-  const [currency, setCurrency] = useState("");
+  const [amount, setAmount] = useState("");
+  const [currency, setCurrency] = useState(currencies[0].shortName);
+  const [result, setResult] = useState(0);
+
+  const onSubmit = (event) => {
+    event.preventDefault();
+    calculateChange();
+  };
+
+  const calculateChange = () => {
+    currencies.forEach((x) => {
+      if (x.shortName === currency) {
+        setResult(x.rate * amount);
+      }
+    });
+  };
 
   return (
-    <form className="form">
+    <form className="form" onSubmit={onSubmit}>
+      
       <fieldset className="form__fieldset">
         <legend className="form__legend"> Kalkulator walutowy </legend>
         <p>Wybierz walutę*</p>
@@ -35,7 +50,6 @@ const Form = () => {
             name="exchange"
             type="number"
             placeholder="Wprowadź kwotę do wymiany"
-            autofocus
             min="1"
             step="0.01"
             required
@@ -50,7 +64,8 @@ const Form = () => {
       </label>
       <p className="form__result">
         {" "}
-        Przeliczona wartość: <strong className="result">result</strong>
+        Przeliczona wartość:{" "}
+        <strong className="result">{`${result.toFixed(2)} ${currency}`}</strong>
       </p>
     </form>
   );
