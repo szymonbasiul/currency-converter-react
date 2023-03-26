@@ -18,7 +18,7 @@ const Form = () => {
   const calculateExchange = () => {
     currencies.forEach((x) => {
       if (x.shortName === currency) {
-        setResult(x.rate / amount);
+        setResult(amount / x.rate);
       }
     });
   };
