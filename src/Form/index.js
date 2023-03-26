@@ -12,6 +12,9 @@ const Form = () => {
     calculateChange();
   };
 
+  const onCurrencyChange = ({ target }) => setCurrency(target.value);
+  const onAmountChange = ({ target }) => setAmount(target.value);
+
   const calculateChange = () => {
     currencies.forEach((x) => {
       if (x.shortName === currency) {
@@ -22,14 +25,13 @@ const Form = () => {
 
   return (
     <form className="form" onSubmit={onSubmit}>
-      
       <fieldset className="form__fieldset">
         <legend className="form__legend"> Kalkulator walutowy </legend>
         <p>Wybierz walutę*</p>
         <select
           className="select"
           value={currency}
-          onChange={({ target }) => setCurrency(target.value)}
+          onChange={onCurrencyChange}
         >
           {currencies.map((currency) => (
             <option key={currency.shortName} value={currency.shortName}>
@@ -39,12 +41,12 @@ const Form = () => {
         </select>
         <p>Wybierz walutę oraz kwotę transakcji*</p>
         <label>
-          <span className="form__labelText">Kwota:</span>
+          <span className="form__labelText">Kwota w PLN:</span>
         </label>
         <label>
           <input
             value={amount}
-            onChange={({ target }) => setAmount(target.value)}
+            onChange={onAmountChange}
             className="form__field"
             id="amount"
             name="exchange"
