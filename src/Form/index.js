@@ -9,16 +9,16 @@ const Form = () => {
 
   const onSubmit = (event) => {
     event.preventDefault();
-    calculateChange();
+    calculateExchange();
   };
 
   const onCurrencyChange = ({ target }) => setCurrency(target.value);
   const onAmountChange = ({ target }) => setAmount(target.value);
 
-  const calculateChange = () => {
+  const calculateExchange = () => {
     currencies.forEach((x) => {
       if (x.shortName === currency) {
-        setResult(x.rate * amount);
+        setResult(x.rate / amount);
       }
     });
   };
