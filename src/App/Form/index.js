@@ -1,26 +1,15 @@
 import { useState } from "react";
 import { currencies } from "../currencies";
+import { Result } from "./Result";
 import "./style.css";
 
-const Form = () => {
+const Form = ({ calculateExchange, result }) => {
+  const [currency, setCurrency] = useState(currencies[2].shortName);
   const [amount, setAmount] = useState("");
-  const [currency, setCurrency] = useState(currencies[0].shortName);
-  const [result, setResult] = useState(0);
 
   const onSubmit = (event) => {
     event.preventDefault();
-    calculateExchange();
-  };
-
-  const onCurrencyChange = ({ target }) => setCurrency(target.value);
-  const onAmountChange = ({ target }) => setAmount(target.value);
-
-  const calculateExchange = () => {
-    currencies.forEach((x) => {
-      if (x.shortName === currency) {
-        setResult(amount / x.rate);
-      }
-    });
+    calculateExchange(currency, amount);
   };
 
   return (
@@ -31,7 +20,7 @@ const Form = () => {
         <select
           className="select"
           value={currency}
-          onChange={onCurrencyChange}
+          onChange={({ target }) => setCurrency(target.value)}
         >
           {currencies.map((currency) => (
             <option key={currency.shortName} value={currency.shortName}>
@@ -46,7 +35,7 @@ const Form = () => {
         <label>
           <input
             value={amount}
-            onChange={onAmountChange}
+            onChange={({ target }) => setAmount(target.value)}
             className="form__field"
             id="amount"
             name="exchange"
@@ -60,15 +49,9 @@ const Form = () => {
       </fieldset>
 
       <label>
-        <button className="form__button" type="submit">
-          Przelicz
-        </button>
+        <button className="form__button">Przelicz</button>
       </label>
-      <p className="form__result">
-        {" "}
-        Przeliczona wartość:{" "}
-        <strong className="result">{`${result.toFixed(2)} ${currency}`}</strong>
-      </p>
+      <Result result={result} />
     </form>
   );
 };

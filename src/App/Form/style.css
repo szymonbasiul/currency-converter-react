@@ -70,10 +70,3 @@
     cursor: pointer;
 }
 
-.form__result {
-    padding: 0 10px;
-    border-radius: 5px;
-    background-color: white;
-    font-size: large;
-    font-weight: bold;
-}
