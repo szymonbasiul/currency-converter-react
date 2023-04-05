@@ -1,7 +1,9 @@
 .form {
+    display: flex;
+    flex-direction: column;
     margin: 50px 0;
     padding: 5px;
-    max-width: 600px;
+    width: 700px;
     border: 1px solid #f6dc19;
     height: 100%;
     background-color: #ccc;
@@ -43,6 +45,8 @@
 }
 
 .form__fieldset {
+    display: flex;
+    flex-direction: column;
     border: 1px solid #ccc;
     background-color: #ccc;
     padding: 10px;
