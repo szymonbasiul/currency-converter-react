@@ -1,13 +1,27 @@
 .form {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     margin: 50px 0;
     padding: 5px;
-    width: 700px;
+    width: 100%;
     border: 1px solid #f6dc19;
     height: 100%;
     background-color: #ccc;
     border-radius: 5px;
+}
+
+.form__select {
+    border: none;
+    appearance: none;
+    border: 1px solid #f6dc19;
+    padding: 5px;
+    width: 100%;
+    border-radius: 5px;
+}
+
+.form__select:hover {
+    cursor: pointer;
 }
 
 .form__labelText {
@@ -18,11 +32,17 @@
 }
 
 .form__field {
+    border: none;
+    appearance: none;
     border: 1px solid #f6dc19;
     padding: 5px;
+    margin: 0;
     width: 100%;
-    max-width: 300px;
     border-radius: 5px;
+}
+
+.form__field:hover {
+    cursor: text;
 }
 
 .form__button {
@@ -47,10 +67,9 @@
 .form__fieldset {
     display: flex;
     flex-direction: column;
-    border: 1px solid #ccc;
-    background-color: #ccc;
-    padding: 10px;
-    margin: 10px 0;
+    justify-content: center;
+    /* border: 1px solid #ccc; */
+    padding: 3%;
 }
 
 .form__legend {

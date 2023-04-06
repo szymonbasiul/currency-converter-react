@@ -18,7 +18,7 @@ const Form = ({ calculateExchange, result }) => {
         <legend className="form__legend"> Kalkulator walutowy </legend>
         <p>Wybierz walutę*</p>
         <select
-          className="select"
+          className="form__select"
           value={currency}
           onChange={({ target }) => setCurrency(target.value)}
         >
