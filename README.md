@@ -5,7 +5,7 @@
 
 ## Demo
 
-https://szymonbasiul.github.io/currency-converter/
+https://szymonbasiul.github.io/currency-converter-react/
 
 ## Technology and methodology
 
