@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { currencies } from "../currencies";
 import { Result } from "./Result";
+import Clock from "./Clock";
 import "./style.css";
 
 const default_currency = currencies[0].shortName;
@@ -16,6 +17,7 @@ const Form = ({ calculateExchange, result }) => {
 
   return (
     <form className="form" onSubmit={onSubmit}>
+      <Clock />
       <fieldset className="form__fieldset">
         <legend className="form__legend"> Kalkulator walutowy </legend>
         <p>Wybierz walutę*</p>
