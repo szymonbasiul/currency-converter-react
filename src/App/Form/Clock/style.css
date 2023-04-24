@@ -2,5 +2,5 @@
     font-size: 14px;
     margin: 2% 10%;
     display: flex;
-    align-self: flex-end;
+    align-self: self-end;
 }
