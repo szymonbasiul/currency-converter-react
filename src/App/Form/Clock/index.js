@@ -14,18 +14,20 @@ const Clock = () => {
     };
   }, []);
 
+  const dateFormat = (currentDate.toLocaleDateString(undefined, {
+    weekday: "long",
+    day: "numeric",
+    month: "long",
+    hour: "2-digit",
+    minute: "2-digit",
+    second: "2-digit",
+  }));
+
   return (
     <p className="form__time">
       {" "}
       Dzisiaj jest {""}
-      {currentDate.toLocaleDateString(undefined, {
-        weekday: "long",
-        day: "numeric",
-        month: "long",
-        hour: "2-digit",
-        minute: "2-digit",
-        second: "2-digit",
-      })}
+      {dateFormat}
     </p>
   );
 };
