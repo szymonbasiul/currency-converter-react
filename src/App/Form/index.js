@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useRef } from "react";
 import { currencies } from "../currencies";
 import { Result } from "./Result";
 import Clock from "./Clock";
@@ -9,10 +9,22 @@ const default_currency = currencies[0].shortName;
 const Form = ({ calculateExchange, result }) => {
   const [currency, setCurrency] = useState(default_currency);
   const [amount, setAmount] = useState("");
+  const inputRef = useRef(null);
+
+  const focusInput = () => {
+    inputRef.current.focus();
+  };
+
+  const clearInput = () => {
+    setTimeout(()=> {
+      setAmount("");
+    },100);
+  }
 
   const onSubmit = (event) => {
     event.preventDefault();
     calculateExchange(currency, amount);
+    clearInput();
   };
 
   return (
@@ -36,6 +48,7 @@ const Form = ({ calculateExchange, result }) => {
         <label>
           <span className="form__labelText">Kwota w PLN:</span>
           <input
+            ref={inputRef}
             value={amount}
             onChange={({ target }) => setAmount(target.value)}
             className="form__field"
@@ -50,7 +63,9 @@ const Form = ({ calculateExchange, result }) => {
         </label>
       </fieldset>
 
-      <button className="form__button">Przelicz</button>
+      <button className="form__button" onClick={focusInput}>
+        Przelicz
+      </button>
 
       <Result result={result} />
     </form>
