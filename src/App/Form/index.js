@@ -3,8 +3,10 @@ import { currencies } from "../currencies";
 import { Result } from "./Result";
 import "./style.css";
 
+const default_currency = currencies[0].shortName;
+
 const Form = ({ calculateExchange, result }) => {
-  const [currency, setCurrency] = useState(currencies[2].shortName);
+  const [currency, setCurrency] = useState(default_currency);
   const [amount, setAmount] = useState("");
 
   const onSubmit = (event) => {
@@ -31,8 +33,6 @@ const Form = ({ calculateExchange, result }) => {
         <p>Wybierz walutę oraz kwotę transakcji*</p>
         <label>
           <span className="form__labelText">Kwota w PLN:</span>
-        </label>
-        <label>
           <input
             value={amount}
             onChange={({ target }) => setAmount(target.value)}
@@ -48,9 +48,8 @@ const Form = ({ calculateExchange, result }) => {
         </label>
       </fieldset>
 
-      <label>
-        <button className="form__button">Przelicz</button>
-      </label>
+      <button className="form__button">Przelicz</button>
+
       <Result result={result} />
     </form>
   );
