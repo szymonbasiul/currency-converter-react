@@ -16,10 +16,10 @@ const Form = ({ calculateExchange, result }) => {
   };
 
   const clearInput = () => {
-    setTimeout(()=> {
+    setTimeout(() => {
       setAmount("");
-    },100);
-  }
+    }, 100);
+  };
 
   const onSubmit = (event) => {
     event.preventDefault();
