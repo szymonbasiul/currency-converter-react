@@ -2,7 +2,16 @@ import { useState, useRef } from "react";
 import { currencies } from "../currencies";
 import { Result } from "./Result";
 import Clock from "./Clock";
-import "./style.css";
+import {
+  Button,
+  Field,
+  Fieldset,
+  Label,
+  Legend,
+  MainForm,
+  Select,
+  Text,
+} from "./styled";
 
 const default_currency = currencies[0].shortName;
 
@@ -28,30 +37,30 @@ const Form = ({ calculateExchange, result }) => {
   };
 
   return (
-    <form className="form" onSubmit={onSubmit}>
+    <MainForm onSubmit={onSubmit}>
       <Clock />
-      <fieldset className="form__fieldset">
-        <legend className="form__legend"> Kalkulator walutowy </legend>
-        <p>Wybierz walutę*</p>
-        <select
-          className="form__select"
-          value={currency}
-          onChange={({ target }) => setCurrency(target.value)}
-        >
-          {currencies.map((currency) => (
-            <option key={currency.shortName} value={currency.shortName}>
-              {currency.fullName}
-            </option>
-          ))}
-        </select>
-        <p>Wybierz walutę oraz kwotę transakcji*</p>
-        <label>
-          <span className="form__labelText">Kwota w PLN:</span>
-          <input
+      <Fieldset>
+        <Legend> Kalkulator walutowy </Legend>
+        <Label>
+          <Text>Wybierz walutę*</Text>
+          <Select
+            value={currency}
+            onChange={({ target }) => setCurrency(target.value)}
+          >
+            {currencies.map((currency) => (
+              <option key={currency.shortName} value={currency.shortName}>
+                {currency.fullName}
+              </option>
+            ))}
+          </Select>
+        </Label>
+        <Text>Wybierz walutę oraz kwotę transakcji*</Text>
+        <Label>
+          <Text>Kwota w PLN:</Text>
+          <Field
             ref={inputRef}
             value={amount}
             onChange={({ target }) => setAmount(target.value)}
-            className="form__field"
             id="amount"
             name="exchange"
             type="number"
@@ -60,15 +69,13 @@ const Form = ({ calculateExchange, result }) => {
             step="0.01"
             required
           />
-        </label>
-      </fieldset>
+        </Label>
+      </Fieldset>
 
-      <button className="form__button" onClick={focusInput}>
-        Przelicz
-      </button>
+      <Button onClick={focusInput}>Przelicz</Button>
 
       <Result result={result} />
-    </form>
+    </MainForm>
   );
 };
 

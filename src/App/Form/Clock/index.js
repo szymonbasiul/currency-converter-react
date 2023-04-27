@@ -1,5 +1,5 @@
-import "./style.css";
 import { useEffect, useState } from "react";
+import { ClockForm } from "./styled";
 
 const Clock = () => {
   const [currentDate, setCurrentDate] = useState(new Date());
@@ -24,11 +24,11 @@ const Clock = () => {
   });
 
   return (
-    <p className="form__time">
+    <ClockForm>
       {" "}
       Dzisiaj jest {""}
       {dateFormat}
-    </p>
+    </ClockForm>
   );
 };
 

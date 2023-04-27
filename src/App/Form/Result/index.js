@@ -1,7 +1,7 @@
-import "./style.css";
+import { ResultForm } from "./styled";
 
 export const Result = ({ result }) => (
-  <p className="form__result">
+  <ResultForm>
     {result !== undefined && (
       <>
         {result.givenAmount.toFixed(2)}&nbsp;PLN&nbsp;=&nbsp;
@@ -10,5 +10,5 @@ export const Result = ({ result }) => (
         </strong>
       </>
     )}
-  </p>
+  </ResultForm>
 );
