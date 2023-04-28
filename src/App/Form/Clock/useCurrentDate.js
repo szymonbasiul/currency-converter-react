@@ -13,7 +13,7 @@ export const useCurrentDate = () => {
     };
   }, []);
 
-  const dateFormat = currentDate.toLocaleDateString(undefined, {
+  const formattedDate = currentDate.toLocaleDateString(undefined, {
     weekday: "long",
     day: "numeric",
     month: "long",
@@ -22,6 +22,6 @@ export const useCurrentDate = () => {
     second: "2-digit",
   });
 
-  return dateFormat;
+  return formattedDate;
 
 };

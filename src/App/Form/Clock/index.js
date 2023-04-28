@@ -2,13 +2,13 @@ import { ClockForm } from "./styled";
 import { useCurrentDate } from "./useCurrentDate";
 
 const Clock = () => {
-  const dateFormat = useCurrentDate();
+  const formattedDate = useCurrentDate();
 
   return (
     <ClockForm>
       {" "}
       Dzisiaj jest {""}
-      {dateFormat}
+      {formattedDate}
     </ClockForm>
   );
 };
