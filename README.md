@@ -12,7 +12,7 @@ HTML
 JS
 ES6+
 CSS
-BEM
+Styled Components
 
 ## Description
 
