@@ -13,6 +13,7 @@ JS
 ES6+
 CSS
 Styled Components
+Custom Hooks
 
 ## Description
 
