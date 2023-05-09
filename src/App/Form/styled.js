@@ -7,9 +7,9 @@ export const MainForm = styled.form`
   margin: 50px 0;
   padding: 5px;
   width: 100%;
-  border: 1px solid #f6dc19;
+  border: 1px solid ${({ theme }) => theme.color.yellow};
   height: 100%;
-  background-color: #ccc;
+  background-color: ${({ theme }) => theme.color.grey};
   border-radius: 5px;
 `;
 
@@ -17,7 +17,7 @@ export const Select = styled.select`
   box-sizing: border-box;
   border: none;
   appearance: none;
-  border: 1px solid #f6dc19;
+  border: 1px solid ${({ theme }) => theme.color.yellow};
   padding: 5px;
   width: 100%;
   border-radius: 5px;
@@ -30,7 +30,7 @@ export const Select = styled.select`
 export const Field = styled.input`
   box-sizing: border-box;
   width: 100%;
-  border: 1px solid #f6dc19;
+  border: 1px solid ${({ theme }) => theme.color.yellow};
   padding: 5px;
   margin: 0;
   border-radius: 5px;
@@ -43,12 +43,12 @@ export const Field = styled.input`
 export const Fieldset = styled.fieldset`
   display: flex;
   flex-direction: column;
-  border: 1px solid #ccc;
+  border: 1px solid ${({ theme }) => theme.color.grey};
   padding: 5%;
 `;
 
 export const Legend = styled.legend`
-  background-color: #f6dc19;
+  background-color: ${({ theme }) => theme.color.yellow};
   border-radius: 5px;
   padding: 20px;
   font-weight: 700;
@@ -71,14 +71,14 @@ export const Button = styled.button`
   border: none;
   font-weight: 700;
   border-radius: 5px;
-  background-color: #f6dc19;
+  background-color: ${({ theme }) => theme.color.yellow};
   padding: 15px;
 
   &:hover {
     cursor: pointer;
-    background-color: #fde84c;
+    background-color: ${({ theme }) => theme.color.lightYellow};
   }
   &:active {
-    background-color: #fbee8c;
+    background-color: ${({ theme }) => theme.color.lighterYellow};
   }
 `;

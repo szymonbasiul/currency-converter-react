@@ -6,5 +6,5 @@ export const ClockForm = styled.p`
   display: flex;
   font-family: monospace;
   align-self: self-end;
-  color: rgba(49, 49, 49, 0.86);
+  color: ${({ theme }) => theme.color.darkGrey};
 `;
