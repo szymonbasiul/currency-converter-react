@@ -2,6 +2,7 @@ import { useState, useRef } from "react";
 import { currencies } from "../currencies";
 import { Result } from "./Result";
 import Clock from "./Clock";
+import axios from "axios";
 import {
   Button,
   Field,
@@ -17,8 +18,20 @@ const default_currency = currencies[0].shortName;
 
 const Form = ({ calculateExchange, result }) => {
   const [currency, setCurrency] = useState(default_currency);
+
+  const [currencyData, setCurrencyData] = useState();
+
   const [amount, setAmount] = useState("");
   const inputRef = useRef(null);
+
+  const getAllCurrencies = () => {
+    axios
+      .get("https://api.exchangerate.host/latest?base=PLN")
+      .then((response) => {
+        console.log(response.data);
+      })
+      .catch((error) => error);
+  };
 
   const focusInput = () => {
     inputRef.current.focus();
@@ -32,6 +45,7 @@ const Form = ({ calculateExchange, result }) => {
 
   const onSubmit = (event) => {
     event.preventDefault();
+    getAllCurrencies();
     calculateExchange(currency, amount);
     clearInput();
   };

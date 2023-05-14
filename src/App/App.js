@@ -5,7 +5,7 @@ import { Container } from "./styled";
 
 function App() {
   const [result, setResult] = useState();
-
+  
   const calculateExchange = (currency, amount) => {
     const rate = currencies.find(
       ({ shortName }) => shortName === currency
