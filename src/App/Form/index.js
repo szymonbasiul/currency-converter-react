@@ -1,8 +1,7 @@
-import { useState, useRef } from "react";
-import { currencies } from "../currencies";
+import { useState, useRef, useEffect } from "react";
 import { Result } from "./Result";
 import Clock from "./Clock";
-import axios from "axios";
+import { useCurrencyData } from "./useCurrencyData";
 import {
   Button,
   Field,
@@ -13,25 +12,16 @@ import {
   Select,
   Text,
 } from "./styled";
+import { currencies } from "../currencies";
 
-const default_currency = currencies[0].shortName;
+const default_currency = [];
 
 const Form = ({ calculateExchange, result }) => {
+  const { getAllCurrenciesData, currencyData } = useCurrencyData();
   const [currency, setCurrency] = useState(default_currency);
-
-  const [currencyData, setCurrencyData] = useState();
-
   const [amount, setAmount] = useState("");
-  const inputRef = useRef(null);
 
-  const getAllCurrencies = () => {
-    axios
-      .get("https://api.exchangerate.host/latest?base=PLN")
-      .then((response) => {
-        console.log(response.data);
-      })
-      .catch((error) => error);
-  };
+  const inputRef = useRef(null);
 
   const focusInput = () => {
     inputRef.current.focus();
@@ -43,9 +33,12 @@ const Form = ({ calculateExchange, result }) => {
     }, 100);
   };
 
+  // useEffect(() => {
+  //   getAllCurrenciesData();
+  // },[]);
+  
   const onSubmit = (event) => {
     event.preventDefault();
-    getAllCurrencies();
     calculateExchange(currency, amount);
     clearInput();
   };
@@ -57,16 +50,16 @@ const Form = ({ calculateExchange, result }) => {
         <Legend> Kalkulator walutowy </Legend>
         <Label>
           <Text>Wybierz walutę*</Text>
-          <Select
+          {/* <Select
             value={currency}
             onChange={({ target }) => setCurrency(target.value)}
           >
-            {currencies.map((currency) => (
+            {currency.map((currency) => (
               <option key={currency.shortName} value={currency.shortName}>
                 {currency.fullName}
               </option>
             ))}
-          </Select>
+          </Select> */}
         </Label>
         <Text>Wybierz walutę oraz kwotę transakcji*</Text>
         <Label>

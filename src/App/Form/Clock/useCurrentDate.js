@@ -13,6 +13,5 @@ export const useCurrentDate = () => {
     };
   }, []);
 
-  return {currentDate};
-
+  return { currentDate };
 };

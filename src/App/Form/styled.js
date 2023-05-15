@@ -82,3 +82,11 @@ export const Button = styled.button`
     background-color: ${({ theme }) => theme.color.lighterYellow};
   }
 `;
+
+export const LoadingScreen = styled.div`
+  color: ${({ theme }) => theme.color.cardinal};
+`;
+
+export const CrashScreen = styled.div`
+  color: ${({ theme }) => theme.color.apple};
+`;
