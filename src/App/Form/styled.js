@@ -83,10 +83,10 @@ export const Button = styled.button`
   }
 `;
 
-export const LoadingScreen = styled.div`
+export const Load = styled.div`
   color: ${({ theme }) => theme.color.cardinal};
 `;
 
-export const CrashScreen = styled.div`
+export const Crash = styled.div`
   color: ${({ theme }) => theme.color.apple};
 `;
