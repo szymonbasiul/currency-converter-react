@@ -10,10 +10,14 @@ https://szymonbasiul.github.io/currency-converter-react/
 
 HTML
 JS
+React
 ES6+
 CSS
+Normalize
 Styled Components
 Custom Hooks
+Axios API
+
 
 ## Description
 
