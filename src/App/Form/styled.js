@@ -85,6 +85,7 @@ export const Button = styled.button`
 
 export const Load = styled.div`
   color: ${({ theme }) => theme.color.cardinal};
+  
 `;
 
 export const Crash = styled.div`

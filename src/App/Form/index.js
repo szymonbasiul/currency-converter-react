@@ -4,6 +4,8 @@ import Clock from "./Clock";
 import { useCurrencyData } from "./useCurrencyData";
 import {
   Button,
+  Crash,
+  Load,
   Field,
   Fieldset,
   Label,
@@ -37,9 +39,9 @@ const Form = ({ calculateExchange, result }) => {
   };
 
   if (currencyData.stage === "load") {
-    return <p>Loading data from API ...</p>;
+    return <Load>Loading data from API ...</Load>;
   } else if (currencyData.stage === "error") {
-    return <p>Error occured ;/ ...</p>;
+    return <Crash>Error occured ;/ ...</Crash>;
   } else {
     return (
       <MainForm onSubmit={onSubmit}>
