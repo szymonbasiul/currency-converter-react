@@ -84,10 +84,21 @@ export const Button = styled.button`
 `;
 
 export const Load = styled.div`
-  color: ${({ theme }) => theme.color.cardinal};
-  
+  display: flex;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  color: ${({ theme }) => theme.color.apple};
 `;
 
+export const Loader = styled.div``;
+
 export const Crash = styled.div`
-  color: ${({ theme }) => theme.color.apple};
+  display: flex;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  color: ${({ theme }) => theme.color.cardinal};
 `;

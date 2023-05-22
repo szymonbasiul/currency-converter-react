@@ -38,53 +38,57 @@ const Form = ({ calculateExchange, result }) => {
     clearInput();
   };
 
-  if (currencyData.stage === "load") {
-    return <Load>Loading data from API ...</Load>;
-  } else if (currencyData.stage === "error") {
-    return <Crash>Error occured ;/ ...</Crash>;
-  } else {
-    return (
-      <MainForm onSubmit={onSubmit}>
-        <Clock />
-        <Fieldset>
-          <Legend> Kalkulator walutowy </Legend>
-          <Label>
-            <Text>Wybierz walutę*</Text>
-            <Select
-              value={currency}
-              onChange={({ target }) => setCurrency(target.value)}
-            >
-              {Object.keys(currencyData.rates).map((currency) => (
-                <option key={currency} value={currency}>
-                  {currency}
-                </option>
-              ))}
-            </Select>
-          </Label>
-          <Text>Wybierz walutę oraz kwotę transakcji*</Text>
-          <Label>
-            <Text>Kwota w PLN:</Text>
-            <Field
-              ref={inputRef}
-              value={amount}
-              onChange={({ target }) => setAmount(target.value)}
-              id="amount"
-              name="exchange"
-              type="number"
-              placeholder="Wprowadź kwotę do wymiany"
-              min="1"
-              step="0.01"
-              required
-            />
-          </Label>
-        </Fieldset>
-
-        <Button onClick={focusInput}>Przelicz</Button>
-
-        <Result result={result} />
-      </MainForm>
-    );
-  }
+  return (
+    <MainForm onSubmit={onSubmit}>
+      {currencyData.stage === "load" ? (
+        <Load>
+          <p>Loading data... It can take few seconds...</p>
+        </Load>
+      ) : currencyData.stage === "error" ? (
+        <Crash>
+          <p> Something went wrong... Check your internet connection and try again later...</p>
+        </Crash>
+      ) : (
+        <>
+          <Clock />
+          <Fieldset>
+            <Legend> Kalkulator walutowy </Legend>
+            <Label>
+              <Text>Wybierz walutę*</Text>
+              <Select
+                value={currency}
+                onChange={({ target }) => setCurrency(target.value)}
+              >
+                {Object.keys(currencyData.rates).map((currency) => (
+                  <option key={currency} value={currency}>
+                    {currency}
+                  </option>
+                ))}
+              </Select>
+            </Label>
+            <Text>Wybierz walutę oraz kwotę transakcji*</Text>
+            <Label>
+              <Text>Kwota w PLN:</Text>
+              <Field
+                ref={inputRef}
+                value={amount}
+                onChange={({ target }) => setAmount(target.value)}
+                id="amount"
+                name="exchange"
+                type="number"
+                placeholder="Wprowadź kwotę do wymiany"
+                min="1"
+                step="0.01"
+                required
+              />
+            </Label>
+          </Fieldset>
+          <Button onClick={focusInput}>Przelicz</Button>
+          <Result result={result} />
+        </>
+      )}
+    </MainForm>
+  );
 };
 
 export default Form;
