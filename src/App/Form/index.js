@@ -13,6 +13,7 @@ import {
   MainForm,
   Select,
   Text,
+  Loader,
 } from "./styled";
 
 const Form = ({ calculateExchange, result }) => {
@@ -42,7 +43,8 @@ const Form = ({ calculateExchange, result }) => {
     <MainForm onSubmit={onSubmit}>
       {currencyData.stage === "load" ? (
         <Load>
-          <p>Loading data... It can take few seconds...</p>
+          <Loader/>
+          <p>Loading data... It may take few seconds...</p>
         </Load>
       ) : currencyData.stage === "error" ? (
         <Crash>

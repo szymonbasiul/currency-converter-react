@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 
 export const MainForm = styled.form`
   display: flex;
@@ -85,6 +85,8 @@ export const Button = styled.button`
 
 export const Load = styled.div`
   display: flex;
+  display: flex;
+  flex-flow: column;
   width: 100%;
   height: 100%;
   align-items: center;
@@ -92,7 +94,20 @@ export const Load = styled.div`
   color: ${({ theme }) => theme.color.apple};
 `;
 
-export const Loader = styled.div``;
+const spinner = keyframes`
+0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+`;
+
+export const Loader = styled.div`
+  margin: auto;
+  border: 16px solid ${({ theme }) => theme.color.yellow};
+  border-top: 16px solid ${({ theme }) => theme.color.apple};
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  animation: ${spinner} 1s linear infinite;
+`;
 
 export const Crash = styled.div`
   display: flex;
